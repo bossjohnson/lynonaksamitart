@@ -14,7 +14,11 @@
 </main>
 
 <footer class="horizontalScroll">
-{{#each images}}
-  <img class="thumbnail" src="images/art/{{this}}" alt="" />
-{{/each}}
+    {{#each images}}
+        <div class="thumbnailContainer">
+            <img class="thumbnail" src="images/art/{{this}}" alt="">
+        </div>
+    {{/each}}
 </footer>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+<script src="javascripts/main.js"></script>

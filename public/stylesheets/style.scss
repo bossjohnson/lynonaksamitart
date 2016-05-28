@@ -41,8 +41,19 @@ footer {
     left: 0;
     height: 20%;
     width: 100%;
-    .thumbnail {
-      height: 100%;
-      width: auto;
+    padding: 1% 0;
+    display: flex;
+    align-items: center;
+    overflow-x: scroll;
+    overflow-y: visible;
+    .thumbnailContainer {
+        display: inline-block;
+        height: 100%;
+        margin: 0 2%;
+        .thumbnail {
+            position: relative;
+            height: 100%;
+            width: auto;
+        }
     }
 }
