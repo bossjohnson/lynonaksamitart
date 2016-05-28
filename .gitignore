@@ -32,3 +32,4 @@ npm-debug.log
 *.map
 node_modules
 .env
+.sass-cache

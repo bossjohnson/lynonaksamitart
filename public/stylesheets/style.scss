@@ -12,10 +12,14 @@ header {
     top: 0;
     left: 0;
     width: 100%;
+    height: 5%;
     background-color: beige;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    img {
+        height: 100%;
+    }
     div {
         position: relative;
         right: 5%;
@@ -34,6 +38,21 @@ header {
         }
     }
 }
+main {
+    border: 1px solid black;
+    position: relative;
+    top: 5%;
+    height: 75%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    #current {
+        max-height: 100%;
+        max-width: 100%;
+        z-index: 1;
+        box-shadow: 5px 5px 3px;
+    }
+}
 footer {
     border: black solid;
     position: fixed;
@@ -45,7 +64,7 @@ footer {
     display: flex;
     align-items: center;
     overflow-x: scroll;
-    overflow-y: visible;
+    overflow-y: auto;
     .thumbnailContainer {
         display: inline-block;
         height: 100%;

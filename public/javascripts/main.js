@@ -13,3 +13,9 @@ $('.thumbnail').on('mouseleave', function() {
         width: '-=20px'
     }, 100);
 });
+
+$('.thumbnail').on('click', function() {
+    // console.log('click');
+    console.log($(this).attr('src'));
+    $('#current').attr('src', $(this).attr('src'));
+});
