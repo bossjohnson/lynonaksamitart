@@ -31,7 +31,7 @@ $(function() {
         $('header, footer, main').css('opacity', '1');
     });
 
-    window.setInterval(randomImage, 7000);
+    window.setInterval(randomImage, 6000);
 });
 
 // ================
