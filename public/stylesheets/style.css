@@ -42,11 +42,15 @@ main {
   display: flex;
   justify-content: center;
   align-items: center; }
-  main #current {
+  main .current {
     max-height: 100%;
     max-width: 100%;
     z-index: 1;
     box-shadow: 5px 5px 3px; }
+  main .largeView {
+    max-height: 98vh;
+    position: relative;
+    top: 9%; }
 
 footer {
   border: black solid;

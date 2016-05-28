@@ -15,7 +15,9 @@ $('.thumbnail').on('mouseleave', function() {
 });
 
 $('.thumbnail').on('click', function() {
-    // console.log('click');
-    console.log($(this).attr('src'));
-    $('#current').attr('src', $(this).attr('src'));
+    $('.current').attr('src', $(this).attr('src'));
+});
+
+$('.current').on('click', function() {
+    $(this).toggleClass('largeView');
 });
