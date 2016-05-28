@@ -21,3 +21,8 @@ $('.thumbnail').on('click', function() {
 $('.current').on('click', function() {
     $(this).toggleClass('largeView');
 });
+
+window.setInterval(function() {
+  // console.log('ok');
+  console.log();
+}, 5000);
