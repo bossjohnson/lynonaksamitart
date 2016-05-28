@@ -40,31 +40,15 @@ header {
     }
 }
 main {
-    border: 1px solid black;
     position: relative;
-    // top: 5%;
     height: 100%;
+    width: 100%;
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    .current {
-        max-height: 100%;
-        max-width: 100%;
-        z-index: 1;
-        box-shadow: 5px 5px 3px;
-    }
-    // .largeView {
-    //     max-height: 98vh;
-    //     position: relative;
-    //     top: 9%;
-    // }
 }
 footer {
-    // border: black solid;
-    background-color: rgba(0,0,0,.5);
+    background-color: rgba(0,0,0,.3);
     position: fixed;
     bottom: 0;
     left: 0;
@@ -84,5 +68,24 @@ footer {
             height: 100%;
             width: auto;
         }
+    }
+}
+
+#imgPlacement {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+    .current {
+      border: 1px solid black;
+        max-height: 98%;
+        max-width: 100%;
+        z-index: 1;
+        box-shadow: 10px 10px 5px rgba(0,0,0,.5);
     }
 }
