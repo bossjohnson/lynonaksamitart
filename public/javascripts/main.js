@@ -16,13 +16,16 @@ $('.thumbnail').on('mouseleave', function() {
 
 $('.thumbnail').on('click', function() {
     $('.current').attr('src', $(this).attr('src'));
+    $('.current').show();
 });
 
 $('.current').on('click', function() {
-    $(this).toggleClass('largeView');
+    $(this).hide();
 });
 
 window.setInterval(function() {
-  // console.log('ok');
-  console.log();
+    var randNum = Math.floor(Math.random() * $('.thumbnail').length);
+    var url = $('.thumbnail')[randNum].src;
+    console.log(url);
+    $('main').css('background-image', 'url(' + url + ')');
 }, 5000);
