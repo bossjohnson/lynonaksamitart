@@ -1,8 +1,5 @@
 $(function() {
 
-    randomImage();
-    $('#imgPlacement').hide();
-
     $('.thumbnail').on('mouseenter', function() {
         $(this).animate({
             top: '-=10px',
@@ -31,16 +28,4 @@ $(function() {
         $('header, footer, main').css('opacity', '1');
     });
 
-    window.setInterval(randomImage, 6000);
 });
-
-// ================
-// Helper Functions
-// ================
-
-function randomImage() {
-    var randNum = Math.floor(Math.random() * $('.thumbnail').length);
-    var url = $('.thumbnail')[randNum].src;
-    console.log(url);
-    $('main').css('background-image', 'url(' + url + ')');
-}

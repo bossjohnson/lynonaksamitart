@@ -30,6 +30,5 @@ node_modules
 npm-debug.log
 .DS_Store
 *.map
-node_modules
 .env
 .sass-cache

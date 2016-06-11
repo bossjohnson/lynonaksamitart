@@ -7,35 +7,42 @@ body {
     height: 100vh;
     width: 100vw;
 }
-header {
+footer {
     position: fixed;
-    top: 0;
+    bottom: 0;
     left: 0;
     width: 100%;
-    height: 5%;
+    height: 10%;
     background-color: rgba(242, 242, 217, .7);
+    z-index: 1;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    z-index: 1;
     img {
         height: 100%;
+        position: relative;
+        top: 5%;
     }
     div {
-        position: relative;
-        right: 5%;
-        width: 25%;
         display: flex;
+        flex-direction: row;
         align-items: center;
-        justify-content: space-around;
-        a {
-            text-decoration: none;
-            color: black;
-            margin: 0 5%;
-            font-size: 1.3em;
-            &:hover {
-                text-shadow: 1px 1px rgba(0,0,0,.5);
-            }
+        height: 100%;
+        width: 50%;
+        &:first-of-type {
+            justify-content: flex-start;
+        }
+        &:nth-of-type(2) {
+            justify-content: flex-end;
+        }
+    }
+    a {
+        text-decoration: none;
+        color: black;
+        margin: 0 5%;
+        font-size: 1.3em;
+        &:hover {
+            text-shadow: 1px 1px rgba(0,0,0,.5);
         }
     }
 }
@@ -46,45 +53,4 @@ main {
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
-}
-footer {
-    background-color: rgba(0,0,0,.3);
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    height: 15%;
-    width: 100%;
-    padding: 1% 0;
-    display: flex;
-    align-items: center;
-    overflow-x: scroll;
-    overflow-y: auto;
-    .thumbnailContainer {
-        display: inline-block;
-        height: 100%;
-        margin: 0 2%;
-        .thumbnail {
-            position: relative;
-            height: 100%;
-            width: auto;
-        }
-    }
-}
-#imgPlacement {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 2;
-    .current {
-        border: 1px solid black;
-        max-height: 98%;
-        max-width: 100%;
-        z-index: 1;
-        box-shadow: 10px 10px 5px rgba(0,0,0,.5);
-    }
 }
