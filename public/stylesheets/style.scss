@@ -90,9 +90,6 @@ footer {
     padding: 1%;
     flex-direction: row;
     justify-content: space-around;
-    &[type="file"] {
-        background-color: white;
-    }
 }
 .error {
     color: red;
@@ -108,8 +105,14 @@ footer {
     @extend .loginForm;
     padding: 1%;
     text-align: center;
-    display: inline-block;
+    overflow-y: scroll;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
     div {
         display: inline-block;
     }
+}
+.center {
+  text-align: center;
 }

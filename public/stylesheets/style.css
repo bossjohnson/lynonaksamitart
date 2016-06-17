@@ -81,8 +81,6 @@ footer {
   padding: 1%;
   flex-direction: row;
   justify-content: space-around; }
-  .uploadForm[type="file"] {
-    background-color: white; }
 
 .error {
   color: red; }
@@ -97,8 +95,14 @@ footer {
 .uploadedImages {
   padding: 1%;
   text-align: center;
-  display: inline-block; }
+  overflow-y: scroll;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap; }
   .uploadedImages div {
     display: inline-block; }
+
+.center {
+  text-align: center; }
 
 /*# sourceMappingURL=style.css.map */
