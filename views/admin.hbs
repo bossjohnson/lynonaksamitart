@@ -1,1 +1,22 @@
-<h1>Admin Site</h1>
+<h1 class="center">Welcome {{ username }}!</h1>
+<form class="uploadForm" action="/admin/upload" method="post">
+    <label>Upload an image</label>
+    <input type="file" name="filename">
+    <input type="submit" value="Upload">
+</form>
+
+<br>
+<section class="uploadedImages">
+    <h5>Current files</h5>
+    <br>
+    {{#each arts}}
+        <div>
+            <h6>{{ title }}</h6>
+            <img class="thumbnail" src="{{url}}" alt="" />
+        </div>
+    {{/each}}
+</section>
+
+<script src="javascripts/imageHover.js">
+
+</script>

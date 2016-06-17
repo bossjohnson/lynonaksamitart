@@ -56,17 +56,49 @@ footer {
   .category:hover {
     cursor: pointer; }
 
-.loginForm {
+.loginForm, .uploadForm, .uploadedImages {
+  border-radius: 6px;
+  background-color: #ECECEC;
+  position: relative;
+  left: 10%;
+  width: 80%;
+  top: 10%;
+  height: 80%;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 5%;
   font-size: 1.5em; }
-  .loginForm input {
+  .loginForm input, .uploadForm input, .uploadedImages input {
     padding: 5px;
     border-radius: 6px; }
 
+.uploadForm {
+  left: 10%;
+  width: 80%;
+  height: 20%;
+  top: 0;
+  padding: 1%;
+  flex-direction: row;
+  justify-content: space-around; }
+  .uploadForm[type="file"] {
+    background-color: white; }
+
 .error {
   color: red; }
+
+.center {
+  text-align: center; }
+
+.thumbnail {
+  max-width: 200px;
+  height: auto; }
+
+.uploadedImages {
+  padding: 1%;
+  text-align: center;
+  display: inline-block; }
+  .uploadedImages div {
+    display: inline-block; }
 
 /*# sourceMappingURL=style.css.map */
