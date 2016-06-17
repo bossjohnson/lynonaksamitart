@@ -1,0 +1,16 @@
+<form class="loginForm" action="/admin" method="post">
+    <h1>Admin Log In</h1>
+    <br>
+    {{#if error}}
+        <h5 class="error">{{ error }}</h5>
+        <br>
+    {{/if}}
+    <label>Username</label>
+    <input type="text" name="username" placeholder="Enter username">
+    <br>
+    <label>Password</label>
+    <input type="password" name="password" placeholder="Enter password">
+    <br>
+    <input type="submit" value="Log In">
+</form>
+<script src="javascripts/autofocus.js"></script>

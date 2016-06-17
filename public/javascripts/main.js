@@ -1,31 +1,17 @@
 $(function() {
+    var catShow = false;
+    var all = $('<a class="category">All</a>');
+    var ink = $('<a class="category">Ink</a>');
+    var paintings = $('<a class="category">Paintings</a>');
+    var commissioned = $('<a class="category">Commissioned</a>');
+    var categories = $('<div></div>')
+        .append(all)
+        .append(ink)
+        .append(paintings)
+        .append(commissioned);
 
-    $('.thumbnail').on('mouseenter', function() {
-        $(this).animate({
-            top: '-=10px',
-            height: '+=20px',
-            width: '+=20px'
-        }, 100);
+    $('#gallery').on('click', function() {
+        !catShow ? $(this).after(categories) : categories.remove();
+        catShow = !catShow;
     });
-
-    $('.thumbnail').on('mouseleave', function() {
-        $(this).animate({
-            top: '+=10px',
-            height: '-=20px',
-            width: '-=20px'
-        }, 100);
-    });
-
-    $('.thumbnail').on('click', function() {
-        $('header, footer, main').css('opacity', '.2');
-        $('.current').attr('src', $(this).attr('src'));
-        $('#imgPlacement').show();
-
-    });
-
-    $('.current').on('click', function() {
-        $('#imgPlacement').hide();
-        $('header, footer, main').css('opacity', '1');
-    });
-
 });
