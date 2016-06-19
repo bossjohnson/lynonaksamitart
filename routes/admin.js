@@ -57,7 +57,6 @@ router.get('/sign-s3', function(req, res, next) {
 });
 
 router.post('/upload', function(req, res, next) {
-    // TODO: Add images to database after successful upload
     var title = req.query.title;
     var url = `https://${process.env.S3_BUCKET}.s3.amazonaws.com/${req.query.filename}`;
     var category = req.query.category;
@@ -100,5 +99,14 @@ function insertIntoArts(title, url, category) {
 }
 
 function deleteFromArts(id) {
-  // TODO: Delete entries from database
+    return new Promise(function(resolve, reject) {
+        var queryString = `DELETE FROM arts WHERE id = ${id}`;
+        client.query(queryString, (err, data) => {
+            if (err) {
+                reject(err);
+            } else {
+                resolve('DELETE');
+            }
+        });
+    });
 }
