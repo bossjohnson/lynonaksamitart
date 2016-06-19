@@ -3,7 +3,9 @@ var router = express.Router();
 var pg = require('pg');
 var bcrypt = require('bcrypt');
 var client = new pg.Client('postgres://localhost:5432/lynonsart');
-
+var fs = require('fs');
+var aws = require('aws-sdk');
+// require('dotenv').config();
 client.connect();
 
 router.get('/', function(req, res, next) {
@@ -28,10 +30,37 @@ router.post('/', function(req, res, next) {
         });
 });
 
+router.get('/sign-s3', function(req, res, next) {
+    var s3 = new aws.S3();
+    var fileName = req.query.fileName;
+    var fileType = req.query.fileType;
+    var s3Params = {
+        Bucket: process.env.S3_BUCKET,
+        Key: fileName,
+        Expires: 60,
+        ContentType: fileType,
+        ACL: 'public-read'
+    };
+
+    s3.getSignedUrl('putObject', s3Params, (err, data) => {
+        if (err) {
+            console.error(err);
+            return res.end();
+        }
+        var returnData = {
+            signedRequest: data,
+            url: `https://${process.env.S3_BUCKET}.s3.amazonaws.com/${fileName}`
+        };
+        res.write(JSON.stringify(returnData));
+        res.end();
+    });
+});
+
 router.post('/upload', function(req, res, next) {
-    // TODO: Add image upload functionality
+
     var filename = req.body.filename;
-    res.redirect('https://http.cat/200');
+    res.write('poop');
+    res.end();
 });
 
 module.exports = router;

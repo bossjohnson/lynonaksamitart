@@ -1,8 +1,8 @@
 <h1 class="center">Welcome {{ username }}!</h1>
 <form class="uploadForm" action="/admin/upload" method="post">
     <label>Upload an image</label>
-    <input type="file" name="filename">
-    <input type="submit" value="Upload">
+    <input id="file-input" type="file" name="filename">
+    <input id="upload" type="submit" value="Upload">
 </form>
 
 <section class="uploadedImages">
@@ -14,5 +14,6 @@
     {{/each}}
 </section>
 
-<script src="javascripts/imageHover.js">
-</script>
+<script src="javascripts/imageHover.js"></script>
+
+<script src="javascripts/imageUpload.js"></script>
