@@ -79,7 +79,6 @@ footer {
   height: 20%;
   top: 0;
   padding: 1%;
-  flex-direction: row;
   justify-content: space-around; }
 
 .error {
@@ -104,5 +103,28 @@ footer {
 
 .center {
   text-align: center; }
+
+.row {
+  display: flex;
+  align-items: center; }
+
+#progressBar {
+  position: relative;
+  border: 1px solid black;
+  border-radius: 6px;
+  width: 20%;
+  height: 10%;
+  text-align: center; }
+  #progressBar div {
+    border-radius: 6px;
+    background-color: darkgreen;
+    width: 0;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0; }
+  #progressBar span {
+    z-index: 1;
+    font-size: 12px; }
 
 /*# sourceMappingURL=style.css.map */

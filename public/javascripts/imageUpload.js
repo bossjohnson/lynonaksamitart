@@ -1,7 +1,8 @@
 // Listen for changes on the file input and start the upload process
 (() => {
+    document.getElementById('progressBar').style.display = 'none';
     document.getElementById('upload').addEventListener('click', (e) => {
-      e.preventDefault();
+        e.preventDefault();
         var files = document.getElementById('file-input').files;
         var file = files[0];
         if (file == null) {
@@ -32,16 +33,22 @@ function getSignedRequest(file) {
 function uploadFile(file, signedRequest, url) {
     var xhr = new XMLHttpRequest();
     xhr.open('PUT', signedRequest);
+    xhr.upload.addEventListener('progress', (prog) => {
+      var uploadProgress = Math.floor(prog.loaded / prog.total * 100) + '%';
+      document.getElementById('progressBar').children[0].style.width = uploadProgress;
+      document.getElementById('progressBar').children[1].innerText = uploadProgress;
+
+    });
     xhr.onreadystatechange = () => {
-        console.log('xhr.readyState:', xhr.readyState);
         if (xhr.readyState === 4) {
-            console.log('xhr.status:', xhr.status);
             if (xhr.status === 200) {
-              console.log('upload ok');
+                console.log('upload complete');
+                document.getElementById('progressBar').style.display = 'none';
             } else {
                 alert('Could not upload file.');
             }
         }
     };
+    document.getElementById('progressBar').style.display = 'initial';
     xhr.send(file);
 }

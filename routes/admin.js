@@ -55,13 +55,12 @@ router.get('/sign-s3', function(req, res, next) {
         res.end();
     });
 });
-
-router.post('/upload', function(req, res, next) {
-
-    var filename = req.body.filename;
-    res.write('poop');
-    res.end();
-});
+//
+// router.post('/upload', function(req, res, next) {
+//
+//     var filename = req.body.filename;
+//     res.end();
+// });
 
 module.exports = router;
 
