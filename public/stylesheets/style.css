@@ -76,10 +76,12 @@ footer {
 .uploadForm {
   left: 10%;
   width: 80%;
-  height: 20%;
+  height: 30%;
   top: 0;
   padding: 1%;
   justify-content: space-around; }
+  .uploadForm div.row label {
+    margin: 0 5%; }
 
 .error {
   color: red; }

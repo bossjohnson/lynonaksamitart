@@ -91,11 +91,14 @@ function insertIntoArts(title, url, category) {
             `;
         client.query(queryString, function(err, data) {
             if (err) {
-                console.log('error:', err);
                 reject(err);
             } else {
                 resolve('INSERT');
             }
         });
     });
+}
+
+function deleteFromArts(id) {
+  // TODO: Delete entries from database
 }
