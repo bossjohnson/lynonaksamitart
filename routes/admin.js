@@ -55,12 +55,15 @@ router.get('/sign-s3', function(req, res, next) {
         res.end();
     });
 });
-//
-// router.post('/upload', function(req, res, next) {
-//
-//     var filename = req.body.filename;
-//     res.end();
-// });
+
+router.post('/upload', function(req, res, next) {
+    // TODO: Add images to database after successful upload
+    var title = req.query.title;
+    var url = `https://${process.env.S3_BUCKET}.s3.amazonaws.com/${req.query.filename}`;
+    var category = req.query.category;
+    insertIntoArts(title, url, category);
+    res.end();
+});
 
 module.exports = router;
 
@@ -76,6 +79,23 @@ function getArts() {
                 arts.push(data.rows[i]);
             }
             resolve(arts);
+        });
+    });
+}
+
+function insertIntoArts(title, url, category) {
+    return new Promise(function(resolve, reject) {
+        var queryString =
+            `INSERT INTO arts (title, url, category_id)
+                VALUES ('${title}', '${url}', '${category}')
+            `;
+        client.query(queryString, function(err, data) {
+            if (err) {
+                console.log('error:', err);
+                reject(err);
+            } else {
+                resolve('INSERT');
+            }
         });
     });
 }
