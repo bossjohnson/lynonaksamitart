@@ -2,10 +2,11 @@
 <form class="uploadForm" action="/admin/upload" method="post">
 
     <div class="row center">
-        <h4>Upload an image</h4>
+        <h5>Upload an image</h5>
     </div>
-    
+    <hr>
     <div class="row">
+        <label for="file-input">File</label>
         <input id="file-input" type="file" name="filename">
     </div>
 
@@ -24,15 +25,13 @@
     </div>
 
     <div class="row">
-        <label for="">Description</label>
+        <label for="description">Description</label>
         <textarea id="description" name="description" rows="4" cols="50" placeholder="Enter a short description"></textarea>
     </div>
-
 
     <div class="row center">
         <input id="upload" type="submit" value="Upload">
     </div>
-
     <div class="row center">
         <div id="progressBar">
             <div></div>
