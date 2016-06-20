@@ -30,6 +30,20 @@ $(function() {
         $(this).css('box-shadow', 'none');
     });
 
+    // Click animation
+    $('.delete, .edit').on('mousedown', function() {
+        $(this).animate({
+            'top': '+=1px',
+            'left': '+=1px'
+        }, 100);
+    });
+    $('.delete, .edit').on('mouseup', function() {
+        $(this).animate({
+            'top': '-=1px',
+            'left': '-=1px'
+        }, 100);
+    });
+
 
 
 });

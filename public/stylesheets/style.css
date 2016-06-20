@@ -137,7 +137,7 @@ footer {
   display: flex;
   flex-direction: column;
   border-radius: 6px;
-  margin: 1% 1%; }
+  margin: 1%; }
   .imageContainer .imageHeader {
     display: flex;
     flex-direction: row;
@@ -150,8 +150,10 @@ footer {
     .imageContainer .imageHeader h6 {
       font-size: 1.05em; }
     .imageContainer .imageHeader .delete {
+      position: relative;
       color: red; }
     .imageContainer .imageHeader .edit {
+      position: relative;
       color: darkgreen; }
 
 #file-input {
