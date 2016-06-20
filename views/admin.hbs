@@ -1,9 +1,17 @@
 <h1 class="center">Welcome {{ username }}!</h1>
 <form class="uploadForm" action="/admin/upload" method="post">
-    <h3>Upload an image</h3>
+    <h4>Upload an image</h4>
+    <div class="row">
+        <input id="file-input" type="file" name="filename">
+    </div>
+
     <div class="row">
         <label for="artTitle">Title</label>
         <input id="artTitle" type="text" name="title" placeholder="Enter a title">
+    </div>
+
+    <div class="row">
+
         <label for="artCat">Category</label>
         <select id="artCat" class="" name="category">
             <option value="1">Ink</option>
@@ -12,21 +20,23 @@
             <option value="4">Commission</option>
         </select>
     </div>
+
     <div class="row">
-        <input id="file-input" type="file" name="filename">
         <input id="upload" type="submit" value="Upload">
     </div>
     <div id="progressBar">
         <div></div>
     </div>
-    <span id="progressPercentage"></span>
+    <div class="row">
+        <span id="progressPercentage"></span>
+    </div>
 </form>
 
 <section class="uploadedImages">
     {{#each arts}}
         <div class="imageContainer">
             <div class="imageHeader">
-                <span class="edit fa fa-pencil"></span>
+                <span class="edit fa fa-pencil" data-image-id="{{ id }}"></span>
                 <h6 class="title">{{ title }}</h6>
                 <span class="delete fa fa-remove" data-image-id="{{ id }}"></span>
             </div>

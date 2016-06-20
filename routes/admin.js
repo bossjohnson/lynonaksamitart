@@ -64,15 +64,11 @@ router.post('/upload', function(req, res, next) {
     res.end();
 });
 
-// router.post('/edit', function(req, res, next) {
-//     console.log('edit request receieved');
-//     res.sendStatus(200);
-// });
-//
-// router.post('/edit/title', function(req, res, next) {
-//     console.log('editing title');
-//     res.sendStatus(200);
-// });
+router.post('/edit/:image_id', function(req, res, next) {
+    console.log(req.params.image_id);
+
+    res.sendStatus(200);
+});
 
 router.post('/delete/:image_id', function(req, res, next) {
     var s3 = new aws.S3();
@@ -147,5 +143,14 @@ function getFileNameFromDB(id) {
         client.query(queryString, function(err, data) {
             resolve(data.rows[0].url);
         });
+    });
+}
+
+function getTitleAndCategoryFromDB(id) {
+    return new new Promise(function(resolve, reject) {
+        var queryString = `SELECT title, category_id FROM arts WHERE id = ${id}`;
+        client.query(queryString, function(err, data) {
+            resolve(data.rows[0]);
+        })
     });
 }

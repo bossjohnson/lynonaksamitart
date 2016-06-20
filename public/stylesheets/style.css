@@ -74,9 +74,9 @@ footer {
     border-radius: 6px; }
 
 .uploadForm {
-  left: 10%;
-  width: 50%;
-  height: 30%;
+  left: 20%;
+  width: 60%;
+  height: 40%;
   top: 0;
   padding: 1%;
   justify-content: space-around; }
@@ -95,11 +95,14 @@ footer {
 
 .uploadedImages {
   height: auto;
+  width: 90%;
+  left: 5%;
   padding: 1%;
   text-align: center;
   overflow-y: scroll;
   flex-direction: row;
   justify-content: space-around;
+  align-items: flex-start;
   flex-wrap: wrap; }
   .uploadedImages div {
     display: inline-block; }
@@ -116,11 +119,11 @@ footer {
   border: 1px solid black;
   border-radius: 6px;
   width: 20%;
-  height: 10%;
+  height: 8%;
   text-align: center; }
   #progressBar div {
     border-radius: 6px;
-    background-color: darkgreen;
+    background-image: linear-gradient(45deg, lightgreen, darkgreen);
     width: 0;
     height: 100%;
     position: absolute;
@@ -133,7 +136,8 @@ footer {
 .imageContainer {
   display: flex;
   flex-direction: column;
-  border-radius: 6px; }
+  border-radius: 6px;
+  margin: 1% 1%; }
   .imageContainer .imageHeader {
     display: flex;
     flex-direction: row;
@@ -142,14 +146,16 @@ footer {
     background-color: darkgray;
     border-top-right-radius: 6px;
     border-top-left-radius: 6px;
-    font-size: .7em; }
+    font-size: 0.7em; }
     .imageContainer .imageHeader h6 {
       font-size: 1.05em; }
+    .imageContainer .imageHeader .delete {
+      color: red; }
+    .imageContainer .imageHeader .edit {
+      color: darkgreen; }
 
-.delete {
-  color: red; }
-
-.edit {
-  color: darkgreen; }
+#file-input {
+  position: relative;
+  left: 20%; }
 
 /*# sourceMappingURL=style.css.map */
