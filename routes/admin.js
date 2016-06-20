@@ -64,19 +64,34 @@ router.post('/upload', function(req, res, next) {
     res.end();
 });
 
-router.post('/edit', function(req, res, next) {
-    console.log('edit request receieved');
-    res.sendStatus(200);
-});
-
-router.post('/edit/title', function(req, res, next) {
-    console.log('editing title');
-    res.sendStatus(200);
-});
+// router.post('/edit', function(req, res, next) {
+//     console.log('edit request receieved');
+//     res.sendStatus(200);
+// });
+//
+// router.post('/edit/title', function(req, res, next) {
+//     console.log('editing title');
+//     res.sendStatus(200);
+// });
 
 router.post('/delete/:image_id', function(req, res, next) {
-    deleteFromArts(req.params.image_id);
-    res.sendStatus(204); // no content in response
+    var s3 = new aws.S3();
+    getFileNameFromDB(req.params.image_id).then(function(fileUrl) {
+        var filename = fileUrl.split(process.env.S3_BUCKET_ROOT)[1]
+        var s3params = {
+            Bucket: process.env.S3_BUCKET,
+            Key: filename
+        };
+        s3.deleteObject(s3params, (err, data) => {
+            if (err) {
+                console.error(err);
+            }
+            deleteFromArts(req.params.image_id)
+                .then(function(result) {
+                    res.sendStatus(204); // no content in response
+                });
+        });
+    });
 });
 
 module.exports = router;
@@ -122,6 +137,15 @@ function deleteFromArts(id) {
             } else {
                 resolve('DELETE');
             }
+        });
+    });
+}
+
+function getFileNameFromDB(id) {
+    return new Promise(function(resolve, reject) {
+        var queryString = `SELECT url FROM arts WHERE id = ${id}`;
+        client.query(queryString, function(err, data) {
+            resolve(data.rows[0].url);
         });
     });
 }

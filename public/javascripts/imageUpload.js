@@ -1,4 +1,4 @@
-// Listen for changes on the file input and start the upload process
+// Listen for click on upload button and start the upload process
 (() => {
     document.getElementById('progressBar').style.display = 'none';
     document.getElementById('upload').addEventListener('click', (e) => {
