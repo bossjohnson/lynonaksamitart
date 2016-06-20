@@ -20,7 +20,10 @@ router.post('/', function(req, res, next) {
                 res.locals.username = req.body.username;
                 getArts().then(function(arts) {
                     res.locals.arts = arts;
-                    res.render('admin');
+                    getCategories().then(function(categories) {
+                        res.locals.categories = categories;
+                        res.render('admin');
+                    });
                 });
             } else {
                 res.render('login', {
@@ -95,6 +98,19 @@ module.exports = router;
 // ================
 // Helper Functions
 // ================
+
+function getCategories() {
+    return new Promise(function(resolve, reject) {
+        client.query("SELECT * FROM categories", function(err, data) {
+            var categories = [];
+            for (var i = 0; i < data.rows.length; i++) {
+                categories.push(data.rows[i]);
+            }
+            resolve(categories);
+        })
+    });
+}
+
 
 function getArts() {
     return new Promise(function(resolve, reject) {

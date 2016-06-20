@@ -14,10 +14,9 @@
 
         <label for="artCat">Category</label>
         <select id="artCat" class="" name="category">
-            <option value="1">Ink</option>
-            <option value="2">Painting</option>
-            <option value="3">Sketch</option>
-            <option value="4">Commission</option>
+            {{#each categories}}
+                <option value="{{ id }}">{{ category_name }}</option>
+            {{/each}}
         </select>
     </div>
 
@@ -33,16 +32,20 @@
 </form>
 
 <section class="uploadedImages">
-    {{#each arts}}
-        <div class="imageContainer">
-            <div class="imageHeader">
-                <span class="edit fa fa-pencil" data-image-id="{{ id }}"></span>
-                <h6 class="title">{{ title }}</h6>
-                <span class="delete fa fa-remove" data-image-id="{{ id }}"></span>
+    {{#if arts}}
+        {{#each arts}}
+            <div class="imageContainer">
+                <div class="imageHeader">
+                    <span class="edit fa fa-pencil" data-image-id="{{ id }}"></span>
+                    <h6 class="title">{{ title }}</h6>
+                    <span class="delete fa fa-remove" data-image-id="{{ id }}"></span>
+                </div>
+                <img class="thumbnail" src="{{url}}" alt="">
             </div>
-            <img class="thumbnail" src="{{url}}" alt="">
-        </div>
-    {{/each}}
+        {{/each}}
+    {{else}}
+        You have not uploaded any images.
+    {{/if}}
 </section>
 
 <script src="javascripts/imageUpload.js"></script>

@@ -21,6 +21,7 @@ $(function() {
         xhr.send();
     });
 
+    // Show edit and delete on mouseover
     $('.imageContainer').on('mouseenter', function() {
         $(this).find('.delete, .edit').show();
         $(this).css('box-shadow', '2px 2px 15px black');
@@ -43,7 +44,5 @@ $(function() {
             'left': '-=1px'
         }, 100);
     });
-
-
 
 });
