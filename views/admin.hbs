@@ -1,8 +1,10 @@
 <h1 class="center">Welcome {{ username }}!</h1>
 <form class="uploadForm" action="/admin/upload" method="post">
 
-    <h4>Upload an image</h4>
-
+    <div class="row center">
+        <h4>Upload an image</h4>
+    </div>
+    
     <div class="row">
         <input id="file-input" type="file" name="filename">
     </div>
@@ -22,19 +24,25 @@
     </div>
 
     <div class="row">
-      <label for="">Description</label>
-      <textarea id="description" name="description" rows="4" cols="40"></textarea>
+        <label for="">Description</label>
+        <textarea id="description" name="description" rows="4" cols="50" placeholder="Enter a short description"></textarea>
     </div>
 
-    <div class="row">
+
+    <div class="row center">
         <input id="upload" type="submit" value="Upload">
     </div>
-    <div id="progressBar">
-        <div></div>
+
+    <div class="row center">
+        <div id="progressBar">
+            <div></div>
+        </div>
     </div>
-    <div class="row">
+
+    <div class="row center">
         <span id="progressPercentage"></span>
     </div>
+
 </form>
 
 <section class="uploadedImages">

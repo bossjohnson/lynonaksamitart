@@ -76,12 +76,14 @@ footer {
 .uploadForm {
   left: 30%;
   width: 40%;
-  height: 40%;
+  height: auto;
   top: 0;
   padding: 1%;
   justify-content: space-around; }
-  .uploadForm div.row label {
-    margin: 0 5%; }
+  .uploadForm div.row {
+    width: 100%; }
+    .uploadForm div.row label {
+      margin: 2%; }
 
 .error {
   color: red; }
@@ -107,18 +109,26 @@ footer {
     display: inline-block; }
 
 .center {
-  text-align: center; }
+  text-align: center;
+  justify-content: center; }
 
 .row {
+  padding: .5%;
   display: flex;
   align-items: center; }
+  .row label {
+    font-size: 0.8em;
+    justify-content: center;
+    width: 20%;
+    display: flex;
+    justify-content: flex-end; }
 
 #progressBar {
   position: relative;
   border: 1px solid black;
   border-radius: 6px;
   width: 20%;
-  height: 8%;
+  height: 10px;
   text-align: center; }
   #progressBar div {
     border-radius: 6px;
