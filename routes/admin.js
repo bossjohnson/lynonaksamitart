@@ -63,7 +63,8 @@ router.post('/upload', function(req, res, next) {
     var title = req.query.title;
     var url = `https://${process.env.S3_BUCKET}.s3.amazonaws.com/${req.query.filename}`;
     var category = req.query.category;
-    insertIntoArts(title, url, category);
+    var description = req.query.description;
+    insertIntoArts(title, url, category, description);
     res.end();
 });
 
@@ -124,11 +125,11 @@ function getArts() {
     });
 }
 
-function insertIntoArts(title, url, category) {
+function insertIntoArts(title, url, category, description) {
     return new Promise(function(resolve, reject) {
         var queryString =
-            `INSERT INTO arts (title, url, category_id)
-                VALUES ('${title}', '${url}', '${category}')
+            `INSERT INTO arts (title, url, category_id, description)
+                VALUES ('${title}', '${url}', '${category}', '${description}')
             `;
         client.query(queryString, function(err, data) {
             if (err) {

@@ -1,6 +1,8 @@
 <h1 class="center">Welcome {{ username }}!</h1>
 <form class="uploadForm" action="/admin/upload" method="post">
+
     <h4>Upload an image</h4>
+
     <div class="row">
         <input id="file-input" type="file" name="filename">
     </div>
@@ -11,13 +13,17 @@
     </div>
 
     <div class="row">
-
         <label for="artCat">Category</label>
         <select id="artCat" class="" name="category">
             {{#each categories}}
                 <option value="{{ id }}">{{ category_name }}</option>
             {{/each}}
         </select>
+    </div>
+
+    <div class="row">
+      <label for="">Description</label>
+      <textarea id="description" name="description" rows="4" cols="40"></textarea>
     </div>
 
     <div class="row">

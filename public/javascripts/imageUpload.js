@@ -46,7 +46,8 @@ function uploadFile(file, signedRequest, url) {
                 var saveToDB = new XMLHttpRequest();
                 var title = document.getElementById('artTitle').value;
                 var category = document.getElementById('artCat').value;
-                saveToDB.open('post', `/admin/upload?title=${title}&filename=${file.name}&category=${category}`);
+                var description = document.getElementById('description').value;
+                saveToDB.open('post', `/admin/upload?title=${title}&filename=${file.name}&category=${category}&description=${description}`);
                 saveToDB.send();
                 document.location.reload();
             } else {
