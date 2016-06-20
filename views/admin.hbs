@@ -1,9 +1,9 @@
 <h1 class="center">Welcome {{ username }}!</h1>
 <form class="uploadForm" action="/admin/upload" method="post">
-    <label>Upload an image</label>
+    <h3>Upload an image</h3>
     <div class="row">
         <label for="artTitle">Title</label>
-        <input id="artTitle" type="text" name="title" placeholder="Enter a title for the piece">
+        <input id="artTitle" type="text" name="title" placeholder="Enter a title">
         <label for="artCat">Category</label>
         <select id="artCat" class="" name="category">
             <option value="1">Ink</option>
@@ -25,19 +25,15 @@
 <section class="uploadedImages">
     {{#each arts}}
         <div class="imageContainer">
-
             <div class="imageHeader">
                 <span class="edit fa fa-pencil"></span>
                 <h6 class="title">{{ title }}</h6>
                 <span class="delete fa fa-remove" data-image-id="{{ id }}"></span>
             </div>
-
             <img class="thumbnail" src="{{url}}" alt="">
         </div>
     {{/each}}
 </section>
-
-<script src="javascripts/imageHover.js"></script>
 
 <script src="javascripts/imageUpload.js"></script>
 

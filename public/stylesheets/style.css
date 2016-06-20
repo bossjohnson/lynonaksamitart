@@ -75,7 +75,7 @@ footer {
 
 .uploadForm {
   left: 10%;
-  width: 80%;
+  width: 50%;
   height: 30%;
   top: 0;
   padding: 1%;
@@ -94,6 +94,7 @@ footer {
   height: auto; }
 
 .uploadedImages {
+  height: auto;
   padding: 1%;
   text-align: center;
   overflow-y: scroll;
@@ -131,11 +132,24 @@ footer {
 
 .imageContainer {
   display: flex;
-  flex-direction: column; }
+  flex-direction: column;
+  border-radius: 6px; }
   .imageContainer .imageHeader {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    align-items: center; }
+    align-items: center;
+    background-color: darkgray;
+    border-top-right-radius: 6px;
+    border-top-left-radius: 6px;
+    font-size: .7em; }
+    .imageContainer .imageHeader h6 {
+      font-size: 1.05em; }
+
+.delete {
+  color: red; }
+
+.edit {
+  color: darkgreen; }
 
 /*# sourceMappingURL=style.css.map */

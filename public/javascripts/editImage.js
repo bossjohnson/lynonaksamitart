@@ -1,4 +1,6 @@
 $(function() {
+    $('.delete, .edit').hide();
+
     $('.title').on('click', function() {
         var xhr = new XMLHttpRequest();
         xhr.open('post', '/admin/edit');
@@ -17,4 +19,12 @@ $(function() {
         };
         xhr.send();
     });
+
+    $('.imageContainer').on('mouseenter', function() {
+        $(this).find('.delete, .edit').show();
+    });
+    $('.imageContainer').on('mouseleave', function() {
+        $(this).find('.delete, .edit').hide();
+    });
+
 });
