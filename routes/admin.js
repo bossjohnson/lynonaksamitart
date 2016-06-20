@@ -64,6 +64,21 @@ router.post('/upload', function(req, res, next) {
     res.end();
 });
 
+router.post('/edit', function(req, res, next) {
+    console.log('edit request receieved');
+    res.sendStatus(200);
+});
+
+router.post('/edit/title', function(req, res, next) {
+    console.log('editing title');
+    res.sendStatus(200);
+});
+
+router.post('/delete/:image_id', function(req, res, next) {
+    deleteFromArts(req.params.image_id);
+    res.sendStatus(204); // no content in response
+});
+
 module.exports = router;
 
 // ================

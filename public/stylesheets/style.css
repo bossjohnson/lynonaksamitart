@@ -129,4 +129,15 @@ footer {
     z-index: 1;
     font-size: 12px; }
 
+.imageContainer {
+  border: 2px dashed black;
+  display: flex;
+  flex-direction: column; }
+  .imageContainer .imageHeader {
+    border: 2px dotted green;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center; }
+
 /*# sourceMappingURL=style.css.map */
