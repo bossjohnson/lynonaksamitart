@@ -170,7 +170,7 @@ footer {
     .imageContainer .imageHeader .delete {
       position: relative;
       color: red; }
-    .imageContainer .imageHeader .edit {
+    .imageContainer .imageHeader .edit, .imageContainer .imageHeader .save {
       position: relative;
       color: darkgreen; }
 

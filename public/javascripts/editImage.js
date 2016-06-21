@@ -1,12 +1,18 @@
 $(function() {
-    $('.delete, .edit').hide();
+    $('.delete, .edit, .save').hide();
 
     $('.edit').on('click', function() {
-        
+        $(this).hide();
+        $(this).siblings('.save').show();
         // var image_id = $(this).data().imageId;
         // var xhr = new XMLHttpRequest();
         // xhr.open('post', '/admin/edit/' + image_id);
         // xhr.send();
+    });
+
+    $('.save').on('click', function() {
+        $(this).hide();
+        $(this).siblings('.edit').show();
     });
 
     $('.delete').on('click', function() {
