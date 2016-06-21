@@ -14,7 +14,6 @@ main {
   height: 90%;
   width: 100%;
   background-color: black;
-  background-image: url("../images/art/picard%20ink%202500.jpg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain; }
@@ -120,6 +119,7 @@ footer {
   justify-content: center; }
 
 .row {
+  border: 2px dotted green;
   position: relative;
   padding: 0.5%;
   display: flex;
@@ -178,7 +178,7 @@ hr {
   width: 100%; }
 
 .showImageInfo {
-  width: 30%;
+  position: relative;
   border: 2px dotted black;
   display: flex;
   flex-direction: column;

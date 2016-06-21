@@ -14,4 +14,6 @@ $(function() {
         !catShow ? $(this).after(categories) : categories.remove();
         catShow = !catShow;
     });
+
+    // $('main').css('background-image', latest.url);
 });

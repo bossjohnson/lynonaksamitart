@@ -14,6 +14,7 @@ $(function() {
     $('.save').on('click', function() {
         $(this).hide();
         $(this).siblings('.edit').show();
+
         $(this).parent().parent().find('.showImageInfo').hide();
     });
 
@@ -36,7 +37,7 @@ $(function() {
         $(this).css('box-shadow', '2px 2px 15px black');
     });
     $('.imageContainer').on('mouseleave', function() {
-        $(this).find('.delete, .edit').hide();
+        $(this).find('.delete, .edit, .save').hide();
         $(this).css('box-shadow', 'none');
     });
 
