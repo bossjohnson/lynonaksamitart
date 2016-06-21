@@ -55,6 +55,9 @@
                     <span class="delete fa fa-remove" data-image-id="{{ id }}"></span>
                 </div>
                 <img class="thumbnail" src="{{url}}" alt="">
+                <div class="showImageInfo">
+                    {{> imageInfo}}
+                </div>
             </div>
         {{/each}}
     {{else}}

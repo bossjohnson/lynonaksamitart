@@ -1,9 +1,10 @@
 $(function() {
-    $('.delete, .edit, .save').hide();
+    $('.delete, .edit, .save, .showImageInfo').hide();
 
     $('.edit').on('click', function() {
         $(this).hide();
         $(this).siblings('.save').show();
+        $(this).parent().parent().find('.showImageInfo').show();
         // var image_id = $(this).data().imageId;
         // var xhr = new XMLHttpRequest();
         // xhr.open('post', '/admin/edit/' + image_id);
@@ -13,6 +14,7 @@ $(function() {
     $('.save').on('click', function() {
         $(this).hide();
         $(this).siblings('.edit').show();
+        $(this).parent().parent().find('.showImageInfo').hide();
     });
 
     $('.delete').on('click', function() {
