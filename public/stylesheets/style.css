@@ -20,11 +20,15 @@ main {
   display: flex;
   align-items: center;
   justify-content: space-between; }
-  main span {
-    border: 2px solid white;
-    border-radius: 6px;
-    padding: 25px;
-    color: white; }
+  main .changeImg {
+    height: 100%;
+    display: flex;
+    align-items: center; }
+    main .changeImg span {
+      border: 2px solid white;
+      border-radius: 6px;
+      padding: 25px;
+      color: white; }
 
 footer {
   position: fixed;

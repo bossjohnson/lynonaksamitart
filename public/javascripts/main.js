@@ -3,6 +3,8 @@ $(function() {
     var currentImageIndex = 0;
     var catShow = false;
 
+    $('#prev, #next').css('opacity', 0);
+
     var all = $('<a class="category">All</a>');
     var ink = $('<a class="category">Ink</a>');
     var paintings = $('<a class="category">Paintings</a>');
@@ -20,7 +22,7 @@ $(function() {
             ++currentImageIndex :
             0;
         $('main').css('background-image', 'url(' +
-                images[currentImageIndex].url.split(' ').join('%20') +
+            encodeUrl(images[currentImageIndex].url) +
             ')');
     });
     $('#prev').on('click', function() {
@@ -29,8 +31,16 @@ $(function() {
             --currentImageIndex :
             images.length - 1;
         $('main').css('background-image', 'url(' +
-                images[currentImageIndex].url.split(' ').join('%20') +
+            encodeUrl(images[currentImageIndex].url) +
             ')');
+    });
+
+    // Show and hide previous and next buttons on mouseover
+    $('.changeImg').on('mouseenter', function () {
+      $('#prev, #next').css('opacity', 1);
+    });
+    $('.changeImg').on('mouseleave', function () {
+      $('#prev, #next').css('opacity', 0);
     });
 
     $('#gallery').on('click', function() {
@@ -40,3 +50,7 @@ $(function() {
 
 
 });
+
+function encodeUrl(url) {
+    return url.split(' ').join('%20');
+}
