@@ -16,7 +16,15 @@ main {
   background-color: black;
   background-repeat: no-repeat;
   background-position: center;
-  background-size: contain; }
+  background-size: contain;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; }
+  main span {
+    border: 2px solid white;
+    border-radius: 6px;
+    padding: 25px;
+    color: white; }
 
 footer {
   position: fixed;
