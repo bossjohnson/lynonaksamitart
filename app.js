@@ -5,6 +5,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var cookieSession = require('cookie-session');
+var hbs = require('express-hbs');
 require('dotenv').config();
 
 var routes = require('./routes/index');
@@ -30,8 +31,12 @@ app.use(cookieSession({
 }));
 
 // view engine setup
-app.set('views', path.join(__dirname, 'views'));
+app.engine('hbs', hbs.express4({
+  partialsDir: path.join(__dirname, 'views/partials'),
+  defaultLayout: path.join(__dirname, 'views/layout.hbs')
+}));
 app.set('view engine', 'hbs');
+app.set('views', path.join(__dirname, 'views'));
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));

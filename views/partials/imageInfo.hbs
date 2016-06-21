@@ -1,0 +1,18 @@
+<div class="row">
+    <label for="artTitle">Title</label>
+    <input id="artTitle" type="text" name="title" placeholder="Enter a title">
+</div>
+
+<div class="row">
+    <label for="artCat">Category</label>
+    <select id="artCat" class="" name="category">
+        {{#each categories}}
+            <option value="{{ id }}">{{ category_name }}</option>
+        {{/each}}
+    </select>
+</div>
+
+<div class="row">
+    <label for="description">Description</label>
+    <textarea id="description" name="description" rows="4" cols="50" placeholder="Enter a short description"></textarea>
+</div>

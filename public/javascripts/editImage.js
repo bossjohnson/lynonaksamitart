@@ -2,10 +2,11 @@ $(function() {
     $('.delete, .edit').hide();
 
     $('.edit').on('click', function() {
-        var image_id = $(this).data().imageId;
-        var xhr = new XMLHttpRequest();
-        xhr.open('post', '/admin/edit/' + image_id);
-        xhr.send();
+        
+        // var image_id = $(this).data().imageId;
+        // var xhr = new XMLHttpRequest();
+        // xhr.open('post', '/admin/edit/' + image_id);
+        // xhr.send();
     });
 
     $('.delete').on('click', function() {

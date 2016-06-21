@@ -1,6 +1,8 @@
 * {
   box-sizing: border-box;
   margin: 0; }
+  *:focus {
+    outline-width: 1px; }
 
 body {
   position: relative;
@@ -79,7 +81,12 @@ footer {
   height: auto;
   top: 0;
   padding: 1%;
-  justify-content: space-around; }
+  justify-content: space-around;
+  overflow: hidden; }
+  .uploadForm input:not(#upload),
+  .uploadForm textarea {
+    width: 80%;
+    border-radius: 6px; }
   .uploadForm div.row {
     width: 100%; }
     .uploadForm div.row label {
@@ -144,6 +151,7 @@ footer {
     font-size: 12px; }
 
 .imageContainer {
+  position: relative;
   display: flex;
   flex-direction: column;
   border-radius: 6px;
@@ -168,5 +176,19 @@ footer {
 
 hr {
   width: 100%; }
+
+.showImageInfo {
+  width: 30%;
+  border: 2px dotted black;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around; }
+  .showImageInfo div.row {
+    width: 100%; }
+    .showImageInfo div.row label {
+      width: 20%; }
+    .showImageInfo div.row input,
+    .showImageInfo div.row textarea {
+      width: 80%; }
 
 /*# sourceMappingURL=style.css.map */
