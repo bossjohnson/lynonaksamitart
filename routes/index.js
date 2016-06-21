@@ -11,10 +11,14 @@ router.get('/', function(req, res, next) {
         images.sort(function(a, b) {
             return b.upload_date - a.upload_date;
         });
-        res.render('index', {
-            latestUrl: images[0].url.split(' ').join('%20'),
-            images: JSON.stringify(images)
-        });
+        if (!images.length) {
+            res.render('index');
+        } else {
+            res.render('index', {
+                latestUrl: images[0].url.split(' ').join('%20'),
+                images: JSON.stringify(images)
+            });
+        }
     });
 });
 
