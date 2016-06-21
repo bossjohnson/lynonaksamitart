@@ -131,7 +131,6 @@ footer {
   justify-content: center; }
 
 .row {
-  border: 2px dotted green;
   position: relative;
   padding: 0.5%;
   display: flex;

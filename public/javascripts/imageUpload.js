@@ -37,7 +37,6 @@ function uploadFile(file, signedRequest, url) {
         var uploadProgress = Math.floor(prog.loaded / prog.total * 100) + '%';
         document.getElementById('progressBar').children[0].style.width = uploadProgress;
         document.getElementById('progressPercentage').innerText = uploadProgress;
-
     });
     xhr.onreadystatechange = () => {
         if (xhr.readyState === 4) {
@@ -47,9 +46,13 @@ function uploadFile(file, signedRequest, url) {
                 var title = document.getElementById('artTitle').value;
                 var category = document.getElementById('artCat').value;
                 var description = document.getElementById('description').value;
+                saveToDB.onreadystatechange = () => {
+                    if (saveToDB.readyState === 4) {
+                        document.location.reload();
+                    }
+                };
                 saveToDB.open('post', `/admin/upload?title=${title}&filename=${file.name}&category=${category}&description=${description}`);
                 saveToDB.send();
-                document.location.reload();
             } else {
                 alert('Could not upload file.');
             }
