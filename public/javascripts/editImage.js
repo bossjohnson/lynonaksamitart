@@ -15,9 +15,11 @@ $(function() {
         $(this).siblings('.save').show();
         header.prop('editing', true);
         container.find('.showImageInfo').show();
+
         container.find('.artTitle').val(imageTitle);
         container.find('.artCat').val(imageCategory);
         container.find('.description').val(imageDesc);
+
         $(this).parent().parent().find('input').focus();
     });
 
@@ -30,6 +32,11 @@ $(function() {
             description: container.find('.description').val()
         };
 
+        container.find('.imageTitle').val(body.title);
+        container.find('.title').text(body.title);
+        container.find('.imageCategory').val(body.category_id);
+        container.find('.imageDesc').val(body.description);
+
         $(this).hide();
         $(this).siblings('.edit').show();
         $(this).parent().prop('editing', false);
@@ -40,7 +47,7 @@ $(function() {
         xhr.setRequestHeader('Content-Type', 'application/json');
         xhr.onreadystatechange = () => {
             if (xhr.readyState === 4) {
-                window.location.reload();
+                console.log('ok');
             }
         };
         xhr.send(JSON.stringify(body));
