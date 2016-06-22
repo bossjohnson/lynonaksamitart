@@ -123,8 +123,46 @@ footer {
   justify-content: space-around;
   align-items: flex-start;
   flex-wrap: wrap; }
-  .uploadedImages div {
-    display: inline-block; }
+  .uploadedImages .imageContainer {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    border-radius: 6px;
+    margin: 1%; }
+    .uploadedImages .imageContainer .showImageInfo {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      height: 100%;
+      padding: 2%;
+      margin: 5%; }
+      .uploadedImages .imageContainer .showImageInfo div.row {
+        width: 100%; }
+        .uploadedImages .imageContainer .showImageInfo div.row label {
+          width: 20%; }
+        .uploadedImages .imageContainer .showImageInfo div.row input,
+        .uploadedImages .imageContainer .showImageInfo div.row textarea {
+          width: 80%;
+          border-radius: 6px; }
+    .uploadedImages .imageContainer .imageHeader {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: center;
+      background-color: darkgray;
+      border-top-right-radius: 6px;
+      border-top-left-radius: 6px;
+      font-size: 0.7em; }
+      .uploadedImages .imageContainer .imageHeader h6 {
+        font-size: 1.05em; }
+      .uploadedImages .imageContainer .imageHeader .delete {
+        position: relative;
+        color: red; }
+      .uploadedImages .imageContainer .imageHeader .edit, .uploadedImages .imageContainer .imageHeader .save {
+        position: relative;
+        color: darkgreen; }
 
 .center {
   text-align: center;
@@ -134,6 +172,8 @@ footer {
   position: relative;
   padding: 0.5%;
   display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
   align-items: center; }
   .row label {
     font-size: 0.8em;
@@ -161,45 +201,7 @@ footer {
     z-index: 1;
     font-size: 12px; }
 
-.imageContainer {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  border-radius: 6px;
-  margin: 1%; }
-  .imageContainer .imageHeader {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-    background-color: darkgray;
-    border-top-right-radius: 6px;
-    border-top-left-radius: 6px;
-    font-size: 0.7em; }
-    .imageContainer .imageHeader h6 {
-      font-size: 1.05em; }
-    .imageContainer .imageHeader .delete {
-      position: relative;
-      color: red; }
-    .imageContainer .imageHeader .edit, .imageContainer .imageHeader .save {
-      position: relative;
-      color: darkgreen; }
-
 hr {
   width: 100%; }
-
-.showImageInfo {
-  position: relative;
-  border: 2px dotted black;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around; }
-  .showImageInfo div.row {
-    width: 100%; }
-    .showImageInfo div.row label {
-      width: 20%; }
-    .showImageInfo div.row input,
-    .showImageInfo div.row textarea {
-      width: 80%; }
 
 /*# sourceMappingURL=style.css.map */

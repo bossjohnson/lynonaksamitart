@@ -5,7 +5,6 @@ var bcrypt = require('bcrypt');
 var client = new pg.Client('postgres://localhost:5432/lynonsart');
 var fs = require('fs');
 var aws = require('aws-sdk');
-// require('dotenv').config();
 client.connect();
 
 router.get('/', function(req, res, next) {

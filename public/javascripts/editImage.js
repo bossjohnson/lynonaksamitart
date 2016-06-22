@@ -1,23 +1,29 @@
 $(function() {
     $('.delete, .edit, .save, .showImageInfo').hide();
 
+    // Edit button functionality
     $('.edit').on('click', function() {
+
         $(this).hide();
         $(this).siblings('.save').show();
+        $(this).parent().prop('editing', true);
         $(this).parent().parent().find('.showImageInfo').show();
+        $(this).parent().parent().find('input').focus();
         // var image_id = $(this).data().imageId;
         // var xhr = new XMLHttpRequest();
         // xhr.open('post', '/admin/edit/' + image_id);
         // xhr.send();
     });
 
+    // Save button functionality
     $('.save').on('click', function() {
         $(this).hide();
         $(this).siblings('.edit').show();
-
+        $(this).parent().prop('editing', false);
         $(this).parent().parent().find('.showImageInfo').hide();
     });
 
+    // Delete button functionality
     $('.delete').on('click', function() {
         var image_id = $(this).data().imageId;
         var xhr = new XMLHttpRequest();
@@ -31,14 +37,20 @@ $(function() {
         xhr.send();
     });
 
-    // Show edit and delete on mouseover
+    // Show edit (or save and delete on mouseover
     $('.imageContainer').on('mouseenter', function() {
-        $(this).find('.delete, .edit').show();
+        if ($(this).find('.imageHeader').prop('editing')) {
+          $(this).find('.delete, .save').show();
+        } else {
+          $(this).find('.delete, .edit').show();
+        }
         $(this).css('box-shadow', '2px 2px 15px black');
     });
     $('.imageContainer').on('mouseleave', function() {
+      if (!$(this).find('.imageHeader').prop('editing')) {
         $(this).find('.delete, .edit, .save').hide();
         $(this).css('box-shadow', 'none');
+      }
     });
 
     // Click animation
