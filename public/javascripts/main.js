@@ -3,17 +3,9 @@ $(function() {
     var currentImageIndex = 0;
     var catShow = false;
 
+    $('#categories').hide();
+    $('.thumbnails').hide();
     $('#prev, #next').css('opacity', 0);
-
-    var all = $('<a class="category">All</a>');
-    var ink = $('<a class="category">Ink</a>');
-    var paintings = $('<a class="category">Paintings</a>');
-    var commissioned = $('<a class="category">Commissioned</a>');
-    var categories = $('<div></div>')
-        .append(all)
-        .append(ink)
-        .append(paintings)
-        .append(commissioned);
 
     // Previous and next button functionality
     $('#next').on('click', function() {
@@ -36,16 +28,53 @@ $(function() {
     });
 
     // Show and hide previous and next buttons on mouseover
-    $('.changeImg').on('mouseenter', function () {
-      $('#prev, #next').css('opacity', 1);
+    $('.changeImg').on('mouseenter', function() {
+        $('#prev, #next').css('opacity', 1);
     });
-    $('.changeImg').on('mouseleave', function () {
-      $('#prev, #next').css('opacity', 0);
+    $('.changeImg').on('mouseleave', function() {
+        $('#prev, #next').css('opacity', 0);
     });
 
+    // Gallery functionality
     $('#gallery').on('click', function() {
-        !catShow ? $(this).after(categories) : categories.remove();
+        !catShow ? $('#categories').show() : $('#categories').hide();
         catShow = !catShow;
+    });
+    $('.category').on('click', function() {
+        var imagesToShow = [];
+        if ($(this).hasClass('showAll')) {
+            imagesToShow = images;
+        } else {
+            for (var i = 0; i < images.length; i++) {
+                if ($(this).text() === images[i].category_name) {
+                    imagesToShow.push(images[i]);
+                }
+            }
+        }
+        $('.thumbnails').children().remove();
+        $('.thumbnails').show();
+        for (var i = 0; i < imagesToShow.length; i++) {
+            var image = '<img src=' + encodeUrl(imagesToShow[i].url) + '>';
+            $('.thumbnails').append(image);
+        }
+        var previews = $('.thumbnails').find('img');
+        previews.on('mouseenter', function() {
+            $(this).css({
+                height: '+=10px',
+                width: '+=10px'
+            });
+        });
+        previews.on('mouseleave', function() {
+            $(this).css({
+                height: '-=10px',
+                width: '-=10px'
+            });
+        });
+        previews.on('click', function() {
+            // console.log('ok');
+            $('main').css('background-image', 'url(' + $(this).attr('src') + ')');
+            $('.thumbnails').hide();
+        });
     });
 
 

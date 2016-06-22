@@ -14,9 +14,16 @@ router.get('/', function(req, res, next) {
         if (!images.length) {
             res.render('index');
         } else {
+            var categories = [];
+            for (var i = 0; i < images.length; i++) {
+                if (categories.indexOf(images[i].category_name) === -1) {
+                    categories.push(images[i].category_name);
+                }
+            }
             res.render('index', {
                 latestUrl: images[0].url.split(' ').join('%20'),
-                images: JSON.stringify(images)
+                images: JSON.stringify(images),
+                categories: categories
             });
         }
     });
@@ -26,7 +33,7 @@ module.exports = router;
 
 function getImages() {
     return new Promise(function(resolve, reject) {
-        client.query("SELECT * FROM arts", function(err, data) {
+        client.query("SELECT * FROM arts INNER JOIN categories ON categories.id = category_id", function(err, data) {
             var images = [];
             for (var i = 0; i < data.rows.length; i++) {
                 images.push(data.rows[i]);

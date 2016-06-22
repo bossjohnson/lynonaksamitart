@@ -7,11 +7,19 @@
     </div>
 </main>
 
+<div class="thumbnails">
+</div>
 
 <footer>
     <div>
         <img src="images/logo.png" alt="" />
         <a id="gallery" href="#">Gallery</a>
+        <div id="categories">
+            <a class="category showAll" href="#">All</a>
+            {{#each categories}}
+                <a class="category" href="#">{{ this }}</a>
+            {{/each}}
+        </div>
     </div>
     <div>
         <a href="#">About</a>
