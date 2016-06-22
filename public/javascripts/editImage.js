@@ -45,11 +45,6 @@ $(function() {
         var xhr = new XMLHttpRequest();
         xhr.open('post', '/admin/edit/' + container.find('.imageId').val());
         xhr.setRequestHeader('Content-Type', 'application/json');
-        xhr.onreadystatechange = () => {
-            if (xhr.readyState === 4) {
-                console.log('ok');
-            }
-        };
         xhr.send(JSON.stringify(body));
     });
 

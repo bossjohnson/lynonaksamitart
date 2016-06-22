@@ -175,12 +175,8 @@ function getTitleAndCategoryFromDB(id) {
 
 function updateEntry(id, title, category_id, description) {
     return new Promise(function(resolve, reject) {
-        console.log(title);
         var queryString = `UPDATE arts SET title = '${title}', category_id = ${category_id}, description = '${description}' WHERE id = ${id}`;
         client.query(queryString, function(err, data) {
-            if (err) {
-                console.log(err);
-            }
             resolve(data);
         });
     });
