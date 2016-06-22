@@ -47,7 +47,7 @@
 <section class="uploadedImages">
     {{#if arts}}
         {{#each arts}}
-            <div class="imageContainer">
+            <div class="imageContainer" data-image-id="{{ id }}" data-title="{{ title }}" data-category="{{ category_id }}" data-desc="{{ description }}">
                 <div class="imageHeader">
                     <span class="edit fa fa-pencil" data-image-id="{{ id }}"></span>
                     <span class="save fa fa-save"></span>
@@ -57,9 +57,13 @@
                 <div class="row">
                     <img class="thumbnail" src="{{url}}" alt="">
                     <div class="showImageInfo">
-                      {{> imageInfo}}
+                        {{> imageInfo categories=../categories}}
                     </div>
                 </div>
+                <input class="imageId" type="hidden" value="{{ this.id }}">
+                <input class="imageTitle" type="hidden" value="{{ this.title }}">
+                <input class="imageCategory" type="hidden" value="{{ this.category_id }}">
+                <input class="imageDesc" type="hidden" value="{{ this.description }}">
             </div>
         {{/each}}
     {{else}}
