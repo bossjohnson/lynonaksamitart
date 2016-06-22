@@ -68,9 +68,11 @@ router.post('/upload', function(req, res, next) {
 });
 
 router.post('/edit/:image_id', function(req, res, next) {
-    console.log(req.params.image_id);
 
-    res.sendStatus(200);
+    updateEntry(req.params.image_id, req.body.title, req.body.category_id, req.body.description)
+        .then(function() {
+            res.sendStatus(200);
+        });
 });
 
 router.post('/delete/:image_id', function(req, res, next) {
@@ -168,5 +170,18 @@ function getTitleAndCategoryFromDB(id) {
         client.query(queryString, function(err, data) {
             resolve(data.rows[0]);
         })
+    });
+}
+
+function updateEntry(id, title, category_id, description) {
+    return new Promise(function(resolve, reject) {
+        console.log(title);
+        var queryString = `UPDATE arts SET title = '${title}', category_id = ${category_id}, description = '${description}' WHERE id = ${id}`;
+        client.query(queryString, function(err, data) {
+            if (err) {
+                console.log(err);
+            }
+            resolve(data);
+        });
     });
 }

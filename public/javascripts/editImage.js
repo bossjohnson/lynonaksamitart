@@ -19,23 +19,36 @@ $(function() {
         container.find('.artCat').val(imageCategory);
         container.find('.description').val(imageDesc);
         $(this).parent().parent().find('input').focus();
-        // var image_id = $(this).data().imageId;
-        // var xhr = new XMLHttpRequest();
-        // xhr.open('post', '/admin/edit/' + image_id);
-        // xhr.send();
     });
 
     // Save button functionality
     $('.save').on('click', function() {
+        var container = $(this).parent().parent();
+        var body = {
+            title: container.find('.artTitle').val(),
+            category_id: container.find('.artCat').val(),
+            description: container.find('.description').val()
+        };
+
         $(this).hide();
         $(this).siblings('.edit').show();
         $(this).parent().prop('editing', false);
         $(this).parent().parent().find('.showImageInfo').hide();
+
+        var xhr = new XMLHttpRequest();
+        xhr.open('post', '/admin/edit/' + container.find('.imageId').val());
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        xhr.onreadystatechange = () => {
+            if (xhr.readyState === 4) {
+                window.location.reload();
+            }
+        };
+        xhr.send(JSON.stringify(body));
     });
 
     // Delete button functionality
     $('.delete').on('click', function() {
-        var image_id = $(this).data().imageId;
+        var image_id = $(this).parent().parent().find('.imageId').val();
         var xhr = new XMLHttpRequest();
         xhr.open('post', '/admin/delete/' + image_id);
 

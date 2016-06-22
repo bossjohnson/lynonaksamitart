@@ -47,12 +47,12 @@
 <section class="uploadedImages">
     {{#if arts}}
         {{#each arts}}
-            <div class="imageContainer" data-image-id="{{ id }}" data-title="{{ title }}" data-category="{{ category_id }}" data-desc="{{ description }}">
+            <div class="imageContainer">
                 <div class="imageHeader">
-                    <span class="edit fa fa-pencil" data-image-id="{{ id }}"></span>
+                    <span class="edit fa fa-pencil"></span>
                     <span class="save fa fa-save"></span>
                     <h6 class="title">{{ title }}</h6>
-                    <span class="delete fa fa-remove" data-image-id="{{ id }}"></span>
+                    <span class="delete fa fa-remove"></span>
                 </div>
                 <div class="row">
                     <img class="thumbnail" src="{{url}}" alt="">
