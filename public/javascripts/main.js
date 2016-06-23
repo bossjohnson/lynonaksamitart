@@ -58,6 +58,9 @@ $(function() {
             $('.thumbnails').append(image);
         }
         var previews = $('.thumbnails').find('img');
+
+        $('main').addClass('faded');
+
         previews.on('mouseenter', function() {
             $(this).css({
                 height: '+=10px',
@@ -71,7 +74,7 @@ $(function() {
             });
         });
         previews.on('click', function() {
-            // console.log('ok');
+            $('main').removeClass('faded');
             $('main').css('background-image', 'url(' + $(this).attr('src') + ')');
             $('.thumbnails').hide();
         });
