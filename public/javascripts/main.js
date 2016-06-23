@@ -53,24 +53,55 @@ $(function() {
         }
         $('.thumbnails').children().remove();
         $('.thumbnails').show();
+
+        var imagesInPane = 0;
+        var numPanes = 1;
+        $('.thumbnails').append('<div class="pane"></div>');
+
         for (var i = 0; i < imagesToShow.length; i++) {
+            ++imagesInPane;
+            if (imagesInPane > 4) {
+                imagesInPane = 0;
+                numPanes++;
+                $('.thumbnails').append('<div class="pane"></div>');
+            }
             var image = '<img src=' + encodeUrl(imagesToShow[i].url) + '>';
-            $('.thumbnails').append(image);
+            $('.thumbnails').find('.pane').last().append(image);
         }
+
+        for (var i = 0; i < $('.pane').length; i++) {
+            $('.pane').eq(i).prepend('<span class="prevPane fa fa-chevron-left fa-2x"></span>');
+            $('.pane').eq(i).append('<span class="nextPane fa fa-chevron-right fa-2x"></span>');
+        }
+        if (numPanes === 1) {
+            $('.prevPane, .nextPane').css({
+                'color': 'lightgray',
+                'opacity': .1
+            });
+        }
+
+        $('.thumbnails').find('.pane').hide();
+        $('.thumbnails').find('.pane').first().show();
         var previews = $('.thumbnails').find('img');
 
         $('main').addClass('faded');
 
         previews.on('mouseenter', function() {
+
+            $(this).prop('oldHeight', $(this).css('height'));
+            $(this).prop('oldWidth', $(this).css('width'));
+            var newMaxHeight = Number($(this).css('height').split('px')[0]) + 10 + 'px';
             $(this).css({
+                'max-height': newMaxHeight,
                 height: '+=10px',
                 width: '+=10px'
             });
         });
         previews.on('mouseleave', function() {
             $(this).css({
-                height: '-=10px',
-                width: '-=10px'
+                'max-height': '100%',
+                height: $(this).prop('oldHeight'),
+                width: $(this).prop('oldWidth')
             });
         });
         previews.on('click', function() {
