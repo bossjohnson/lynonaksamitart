@@ -162,7 +162,6 @@ $(function() {
         $(this).hide();
     });
     $('.showInfo').on('click', function() {
-        console.log(images[currentImageIndex].description);
         $('.infoPane').text(images[currentImageIndex].description);
         if (showingInfo) {
             $('.infoPane').hide()
