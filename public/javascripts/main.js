@@ -6,7 +6,7 @@ $(function() {
 
     $('.infoPane').hide();
     $('.showInfo').hide();
-    $('#categories').hide();
+    $('#categories').css('opacity', 0);
     $('.thumbnails').hide();
     $('#prev, #next').css('opacity', 0);
 
@@ -40,7 +40,7 @@ $(function() {
 
     // Gallery functionality
     $('#gallery').on('click', function() {
-        !catShow ? $('#categories').show() : $('#categories').hide();
+        !catShow ? $('#categories').css('opacity', 1) : $('#categories').css('opacity', 0);
         catShow = !catShow;
     });
     $('.category').on('click', function() {
