@@ -7,7 +7,7 @@ var client = new pg.Client('postgres://vlqtzykjkpdxzs:efJAPlBB3TUPoKjjIv7ak3YVDI
 var fs = require('fs');
 var aws = require('aws-sdk');
 client.connect();
-require('dotenv').config();
+// require('dotenv').config();
 
 router.get('/', function(req, res, next) {
     res.render('login');
