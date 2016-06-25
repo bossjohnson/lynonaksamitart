@@ -2,8 +2,8 @@ var express = require('express');
 var router = express.Router();
 var pg = require('pg');
 var bcrypt = require('bcrypt');
-var client = new pg.Client('postgres://localhost:5432/lynonsart'); // Development
-// var client = new pg.Client('postgres://vlqtzykjkpdxzs:efJAPlBB3TUPoKjjIv7ak3YVDI@ec2-54-235-123-19.compute-1.amazonaws.com:5432/ddh9f9vkhjdb0a'); // Production
+// var client = new pg.Client('postgres://localhost:5432/lynonsart'); // Development
+var client = new pg.Client('postgres://vlqtzykjkpdxzs:efJAPlBB3TUPoKjjIv7ak3YVDI@ec2-54-235-123-19.compute-1.amazonaws.com:5432/ddh9f9vkhjdb0a'); // Production
 var fs = require('fs');
 var aws = require('aws-sdk');
 client.connect();
