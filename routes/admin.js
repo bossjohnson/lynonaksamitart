@@ -70,7 +70,6 @@ router.post('/upload', function(req, res, next) {
 });
 
 router.post('/edit/:image_id', function(req, res, next) {
-
     updateEntry(req.params.image_id, req.body.title, req.body.category_id, req.body.description)
         .then(function() {
             res.sendStatus(200);
