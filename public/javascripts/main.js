@@ -61,7 +61,7 @@ $(function() {
         for (var i = 0; i < imagesToShow.length; i++) {
             ++imagesInPane;
             if (imagesInPane > 4) {
-                imagesInPane = 0;
+                imagesInPane = 1;
                 numPanes++;
                 $('.thumbnails').append('<div class="pane"></div>');
             }
@@ -73,11 +73,24 @@ $(function() {
             $('.pane').eq(i).prepend('<span class="prevPane fa fa-chevron-left fa-2x"></span>');
             $('.pane').eq(i).append('<span class="nextPane fa fa-chevron-right fa-2x"></span>');
         }
+
+        $('.prevPane').on('click', function() {
+            var index = $('.pane').index($(this).parent());
+            $(this).parent().hide();
+            $('.pane').eq(index).prev().show();
+        });
+        $('.nextPane').on('click', function() {
+            var index = $('.pane').index($(this).parent());
+            $(this).parent().hide();
+            $('.pane').eq(index).next().show();
+        });
+
         if (numPanes === 1) {
             $('.prevPane, .nextPane').css({
                 'color': 'lightgray',
                 'opacity': .1
             });
+            $('.prevPane, .nextPane').off('click');
         }
 
         $('.thumbnails').find('.pane').hide();
@@ -87,21 +100,22 @@ $(function() {
         $('main').addClass('faded');
 
         previews.on('mouseenter', function() {
-
             $(this).prop('oldHeight', $(this).css('height'));
             $(this).prop('oldWidth', $(this).css('width'));
             var newMaxHeight = Number($(this).css('height').split('px')[0]) + 10 + 'px';
             $(this).css({
                 'max-height': newMaxHeight,
                 height: '+=10px',
-                width: '+=10px'
+                width: '+=10px',
+                'box-shadow': '6px 6px 5px rgba(0,0,0,.4)'
             });
         });
         previews.on('mouseleave', function() {
             $(this).css({
                 'max-height': '100%',
                 height: $(this).prop('oldHeight'),
-                width: $(this).prop('oldWidth')
+                width: $(this).prop('oldWidth'),
+                'box-shadow': 'none'
             });
         });
         previews.on('click', function() {
