@@ -17,6 +17,8 @@ $(function() {
             ++currentImageIndex :
             0;
         $('main').find('img').attr('src', encodeUrl(images[currentImageIndex].url));
+        $('.infoPane').hide();
+        showingInfo = false;
     });
     $('#prev').on('click', function() {
         currentImageIndex =
@@ -24,6 +26,8 @@ $(function() {
             --currentImageIndex :
             images.length - 1;
         $('main').find('img').attr('src', encodeUrl(images[currentImageIndex].url));
+        $('.infoPane').hide();
+        showingInfo = false;
     });
 
     // Show and hide previous and next buttons on mouseover
