@@ -85,6 +85,18 @@ $(function() {
             $('.pane').eq(index).next().show();
         });
 
+        $('.pane').first().find('.prevPane').css({
+            color: 'lightgray',
+            opacity: .1
+        });
+        $('.pane').first().find('.prevPane').off('click');
+
+        $('.pane').last().find('.nextPane').css({
+            color: 'lightgray',
+            opacity: .1
+        });
+        $('.pane').last().find('.nextPane').off('click');
+
         if (numPanes === 1) {
             $('.prevPane, .nextPane').css({
                 'color': 'lightgray',
@@ -107,7 +119,7 @@ $(function() {
                 'max-height': newMaxHeight,
                 height: '+=10px',
                 width: '+=10px',
-                'box-shadow': '6px 6px 5px rgba(0,0,0,.4)'
+                'box-shadow': '5px 5px 5px rgba(0,0,0,.4)'
             });
         });
         previews.on('mouseleave', function() {
@@ -123,6 +135,11 @@ $(function() {
             $('main').css('background-image', 'url(' + $(this).attr('src') + ')');
             $('.thumbnails').hide();
         });
+    });
+
+    $('main').on('click', function() {
+        $(this).removeClass('faded');
+        $('.thumbnails').hide();
     });
 
 
