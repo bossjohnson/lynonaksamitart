@@ -40,6 +40,8 @@ $(function() {
         catShow = !catShow;
     });
     $('.category').on('click', function() {
+        $('.infoPane').hide();
+        showingInfo = false;
         var imagesToShow = [];
         if ($(this).hasClass('showAll')) {
             imagesToShow = images;
