@@ -21,6 +21,36 @@ main {
   display: flex;
   align-items: center;
   justify-content: space-between; }
+  main .infoPane {
+    position: fixed;
+    height: 50%;
+    top: 25%;
+    width: 60%;
+    left: 20%;
+    z-index: 1;
+    border: 5px solid gray;
+    border-radius: 6px;
+    background-color: #F6F6E4;
+    opacity: .9;
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+  main .mainCenter {
+    position: relative;
+    height: 100%; }
+    main .mainCenter img {
+      height: 100%; }
+    main .mainCenter .showInfo {
+      background-color: #F6F6E4;
+      color: black;
+      border-radius: 6px;
+      padding: 10px;
+      position: absolute;
+      top: 0;
+      right: 0;
+      box-shadow: 4px 4px 3px black;
+      margin: 1%;
+      opacity: .9; }
   main .changeImg {
     height: 100%;
     display: flex;

@@ -2,7 +2,10 @@ $(function() {
     var images = JSON.parse($('#images').val());
     var currentImageIndex = 0;
     var catShow = false;
+    var showingInfo = false;
 
+    $('.infoPane').hide();
+    $('.showInfo').hide();
     $('#categories').hide();
     $('.thumbnails').hide();
     $('#prev, #next').css('opacity', 0);
@@ -13,18 +16,14 @@ $(function() {
             currentImageIndex < images.length - 1 ?
             ++currentImageIndex :
             0;
-        $('main').css('background-image', 'url(' +
-            encodeUrl(images[currentImageIndex].url) +
-            ')');
+        $('main').find('img').attr('src', encodeUrl(images[currentImageIndex].url));
     });
     $('#prev').on('click', function() {
         currentImageIndex =
             currentImageIndex > 0 ?
             --currentImageIndex :
             images.length - 1;
-        $('main').css('background-image', 'url(' +
-            encodeUrl(images[currentImageIndex].url) +
-            ')');
+        $('main').find('img').attr('src', encodeUrl(images[currentImageIndex].url));
     });
 
     // Show and hide previous and next buttons on mouseover
@@ -132,7 +131,12 @@ $(function() {
         });
         previews.on('click', function() {
             $('main').removeClass('faded');
-            $('main').css('background-image', 'url(' + $(this).attr('src') + ')');
+            $('main').find('img').attr('src', $(this).attr('src'));
+            for (var i = 0; i < images.length; i++) {
+                if (encodeUrl(images[i].url) === $(this).attr('src')) {
+                    currentImageIndex = i;
+                }
+            }
             $('.thumbnails').hide();
         });
     });
@@ -142,7 +146,32 @@ $(function() {
         $('.thumbnails').hide();
     });
 
+    $('main img').on('mouseenter', function() {
+        $('.showInfo').show();
+    });
+    $('main img').on('mouseleave', function() {
+        if ($('.showInfo:hover').length === 0) {
+            $('.showInfo').hide();
+        }
+    });
 
+    // Show info functionality
+    $('.showInfo').on('mouseleave', function() {
+        $(this).hide();
+    });
+    $('.showInfo').on('click', function() {
+        $('.infoPane').text(images[currentImageIndex].description);
+        if (showingInfo) {
+            $('.infoPane').hide()
+        } else {
+            $('.infoPane').show();
+        }
+        showingInfo = !showingInfo;
+    });
+    $('.infoPane').on('click', function() {
+        $(this).hide();
+        showingInfo = false;
+    });
 });
 
 function encodeUrl(url) {
