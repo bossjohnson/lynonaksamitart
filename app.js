@@ -4,7 +4,6 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var cookieSession = require('cookie-session');
 var hbs = require('express-hbs');
 require('dotenv').config();
 
@@ -13,22 +12,6 @@ var users = require('./routes/users');
 var admin = require('./routes/admin');
 
 var app = express();
-
-app.use(cookieSession({
-    name: 'session',
-    keys: [
-        process.env.SESSION_KEY1,
-        process.env.SESSION_KEY2,
-        process.env.SESSION_KEY3,
-        process.env.SESSION_KEY4,
-        process.env.SESSION_KEY5,
-        process.env.SESSION_KEY6,
-        process.env.SESSION_KEY7,
-        process.env.SESSION_KEY8,
-        process.env.SESSION_KEY9,
-        process.env.SESSION_KEY10
-    ]
-}));
 
 // view engine setup
 app.engine('hbs', hbs.express4({
